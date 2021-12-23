@@ -1,0 +1,16 @@
+float64 marker_x
+float64 marker_y
+float64 marker_z
+float64 robot_x
+float64 robot_y
+float64 robot_z
+float64 robot_roll
+float64 robot_pitch
+float64 robot_yaw
+---
+float64 obj_x
+float64 obj_y
+float64 obj_z
+
+
+

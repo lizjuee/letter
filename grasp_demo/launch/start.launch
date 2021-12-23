@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>	
+	<!-- start the robot -->
+   	<include file="$(find xarm6_gripper_moveit_config)/launch/realMove_exec.launch">
+        		<arg name="robot_ip" value="192.168.88.111" />
+   	</include>
+
+	<!--start server -->
+	<node pkg="grasp_demo" type="objtobaseserver.py" name= "objtobaseserver"/>
+	<node pkg="grasp_demo" type="CamtoReal" name= "CamtoReal"/>
+	<node pkg="grasp_demo" type="yolo_obj" name= "yolo_obj"/>
+
+</launch>

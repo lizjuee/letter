@@ -1,0 +1,14 @@
+# Define the goal
+float64 target_x
+float64 target_y
+float64 target_z
+---
+# Define the result
+float64 final_x
+float64 final_y
+float64 final_z
+---
+# Define a feedback message 
+float64 current_x
+float64 current_y
+float64 current_z
