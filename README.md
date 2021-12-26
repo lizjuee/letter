@@ -27,11 +27,11 @@ identify workpiece with letter use Yolov3, then sort it in Specific location.
 # ps：These places need to modified：
 1. modify the camera topic to your camera in "CamtoReal", for example：/cam_1/aligned_depth_to_color/image_raw -> /camera/aligned_depth_to_color/image_raw 
 2. modify "tool_h_cam" in "objtobaseserver.py"to your corresponding hand eye parameters.
-3. 修改在darknet_ros 功能年包下的 launch/darknet_letter.launch , config/ros.yaml 的文件。把相机的topic改成自己相机对应的topic。
-4. 在letter_grasp 中，需要在启动前修改初始点和机械臂放置的点。
+3. modify" launch/darknet_letter.launch" in "darknet_ros"package , modify camera topic in "config/ros.yaml" to your corresponding topic。
+4. modify the initial position and target position you want xarm to go in"letter_grasp".
 
-# Demo 说明
-这个demo是一个输入单词，然后通过机器视觉和机械臂的作用下，对带有字母的木块进行拼接。
+# Demo discription
+this is a demo that input a word，then use machine vision and xarm to grasp the workpiece with letter to a specific location.
 
 ## 代码的整体流程：
 1. demo开始机械臂会运动到预设的初始的位置（本demo是在木块的上方）对应为代码中的函数 goSP()
