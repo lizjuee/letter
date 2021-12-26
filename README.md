@@ -33,7 +33,7 @@ identify workpiece with letter use Yolov3, then sort it in Specific location.
 # Demo discription
 this is a demo that input a word，then use machine vision and xarm to grasp the workpiece with letter to a specific location.
 
-## 代码的整体流程：
+## process fo the program：
 1. when demo start, xarm will move to the initial position（it is above the workpiece in this demo）,corresponding function in program is goSP().
 2. then the system will ask What word do you want to splice，input your word and press "enter" button. for example input"hello".
 3. the program will split the word into letter,for example "hello" to "h，e，l， l and o".
@@ -45,10 +45,10 @@ this is a demo that input a word，then use machine vision and xarm to grasp the
 7. move workpiece. call function "moveObj()"
 8. use the functions above can accomplish the demo. Finally, the above process is implemented in initmove。
 
-## 同时这个代码用到了三个功能接口。
-1. 机械臂的坐标变化 （scripts/objtobaseserver.py）
-2. 像素坐标映射到三维坐标。即通过物体识别得到的像素坐标来获取物体距离相机的实际坐标xyz(CamtoReal.cpp)。
-3. 获得制定物体的像素坐标(通过机器视觉识别到物体，并输出像素坐标)(yolo_obj.cpp)
+## this program use three Three functional interfaces
+1. coordinate transformation of xarm （scripts/objtobaseserver.py）
+2. mapping pixel coordinate to Spatial coordinate.(use the pixel coordinate in step 4 to acheive the actual coordinates xyz(CamtoReal.cpp)。
+3. get specific workpiece's pixel coordinate(identify workpiece use machine vision, and output pixel coordinates)(yolo_obj.cpp) 
 
 ### 这三个功能接口通过rosservice来调用。分别是:
 ```
