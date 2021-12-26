@@ -50,18 +50,18 @@ this is a demo that input a word，then use machine vision and xarm to grasp the
 2. mapping pixel coordinate to Spatial coordinate.(use the pixel coordinate in step 4 to acheive the actual coordinates xyz(CamtoReal.cpp)。
 3. get specific workpiece's pixel coordinate(identify workpiece use machine vision, and output pixel coordinates)(yolo_obj.cpp) 
 
-### 这三个功能接口通过rosservice来调用。分别是:
+### these Three functional interfaces are called by rosservice:
 ```
 rosservice call /cam_to_real "pixel_x: 0.0
 pixel_y: 0.0"
 ```
-输入像素坐标即可获得 xyz
+input pixel coordinate can get xyz
 ```
 rosservice call /objtobaselink  "{marker_x: 0.0, marker_y: 0.0, marker_z: 0.0, robot_x: 0.0, robot_y: 0.0, robot_z: 0.0,
   robot_roll: 0.0, robot_pitch: 0.0, robot_yaw: 0.0}"
  ```
-坐标转化接口需要输入物体的xyz，以及机械臂当前状态的xyz和rpy。
+The coordinate conversion interface needs to input the XYZ of the object，And XYZ and RPY of the current state of xarm。
 ```
 rosservice call /get_object "obj: 'e'" 
 ```
-需要输入识别的物体，即可获得物体的像素位置
+The pixel position of the object can be obtained by inputting the recognized object
