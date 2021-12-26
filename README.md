@@ -1,13 +1,13 @@
 # letter
-使用Yolov3识别出不同字母的积木，并排列在指定位置
+identify workpiece with letter use Yolov3, then sort it in Specific location.
 
 
-# 这个demo一共有三个功能包。分别是：
-1. darknet_ros 机器视觉功能包
-2. xarm_ros 机械臂运行功能包
-3. grasp_demo 机械臂抓取代码的实现
+# this demo has three package：
+1. darknet_ros (robot vision function package)
+2. xarm_ros (xarm motion package)
+3. grasp_demo (code of xarm grasp)
 
-# 运行该代码的流程
+# The process of runs the code
 ```
 1. $cd /your_workspace
 
@@ -17,16 +17,16 @@
 
 4. $source devel/setup.bash
 
-5. $roslaunch grasp_demo start.launch // 启动相关节点机械臂等
+5. $roslaunch grasp_demo start.launch // launch corresponding nodes include xarm
 
-6. $roslaunch darknet_ros darknet_letter.launch // 启动机器视觉算法
+6. $roslaunch darknet_ros darknet_letter.launch // launch robot vision algorithm
 
-7. $rosrun grasp_demo ggcnn_grasp //开始demo
+7. $rosrun grasp_demo ggcnn_grasp //start demo
 ```
 
-# 注意：需要修改的地方：
-1. 在CamtoReal 中需要把相机的topic改成自己相机对应的topic。例如：/cam_1/aligned_depth_to_color/image_raw -> /camera/aligned_depth_to_color/image_raw 
-2. 需要在objtobaseserver.py把tool_h_cam改成你自己的相对应的手眼的参数。
+# ps：These places need to modified：
+1. modify the camera topic to your camera in "CamtoReal", for example：/cam_1/aligned_depth_to_color/image_raw -> /camera/aligned_depth_to_color/image_raw 
+2. modify "tool_h_cam" in "objtobaseserver.py"to your corresponding hand eye parameters.
 3. 修改在darknet_ros 功能年包下的 launch/darknet_letter.launch , config/ros.yaml 的文件。把相机的topic改成自己相机对应的topic。
 4. 在letter_grasp 中，需要在启动前修改初始点和机械臂放置的点。
 
