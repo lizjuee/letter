@@ -34,16 +34,16 @@ identify workpiece with letter use Yolov3, then sort it in Specific location.
 this is a demo that input a word，then use machine vision and xarm to grasp the workpiece with letter to a specific location.
 
 ## 代码的整体流程：
-1. demo开始机械臂会运动到预设的初始的位置（本demo是在木块的上方）对应为代码中的函数 goSP()
-2. 接着系统会询问你需要拼接的单词，按回车键确认输入。 例如输入hello
-3. 将输入的单词按照其组成的字母分开。例如hello，则为h，e，l， l和o 。
-4. 分别的去抓取每个字母。抓取的过程细分为识别物体位置，位置的坐标变换
-	4.1 首先将识别到的字母传入函数getPose(string Object)中。例如getPose('h')则可获得字母h对应的木块的像素坐标
-	4.2 接着需要把这个像素坐标转化为在机械臂基坐标系下的坐标。函数getObjPose()的调用就能获得例如字母“h”的坐标。
-5. 机械臂运动到相应位置。 调用函数goObj()，机械臂就会运动到第四步识别出物体坐标
-6. 抓取物体。调用函数graspObj()
-7. 移动物体。调用函数moveObj()
-8. 通过上述的这些函数即可实现这个demo。最后在initMove中对上述的过程进行实现。
+1. when demo start, xarm will move to the initial position（it is above the workpiece in this demo）,corresponding function in program is goSP().
+2. then the system will ask What word do you want to splice，input your word and press "enter" button. for example input"hello".
+3. the program will split the word into letter,for example "hello" to "h，e，l， l and o".
+4. locate the letters. the process will be divide into two parts:find the location of the workpiece，Coordinate transformation of position.
+	4.1 the program first transform the recognized letter to function"getPose(string Object)". for example"getPose('h')" will get the position of letter"h" in pixel.
+	4.2 then transform the pixel location to xarm Base coordinates location. function "getObjPose()" is used to do the coordinate transformation work.
+5. xarm move to a corresponding position. call function"goObj()", xarm will move to the position above the workpiece to get the coordinate.
+6. grasp workpiece. call function "graspObj()"
+7. move workpiece. call function "moveObj()"
+8. use the functions above can accomplish the demo. Finally, the above process is implemented in initmove。
 
 ## 同时这个代码用到了三个功能接口。
 1. 机械臂的坐标变化 （scripts/objtobaseserver.py）
