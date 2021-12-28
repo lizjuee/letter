@@ -11,7 +11,7 @@ identify workpiece with letter use Yolov3, then sort it in Specific location.
 ```
 1. $cd /your_workspace
 
-2. $git clone https://github.com/qq44642754a/letter.git
+2. $git clone https://github.com/lizjuee/letter.git
 
 3. $catkin_make
 
