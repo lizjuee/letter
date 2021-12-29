@@ -1,6 +1,9 @@
 # letter
 identify workpiece with letter use Yolov3, then sort it in Specific location.
 
+You can check the running effect through the following video:
+https://github.com/lizjuee/letter/blob/master/media/Alphbet.mp4
+
 
 # this demo has three package：
 1. darknet_ros (robot vision function package)
